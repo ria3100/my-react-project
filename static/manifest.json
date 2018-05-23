@@ -1,0 +1,9 @@
+{
+  "lang": "ja",
+  "display": "standalone",
+  "short_name": "REACT-PWA",
+  "name": "react-pwa",
+  "start_url": "/",
+  "theme_color": "#f68084",
+  "background_color": "#f68084"
+}

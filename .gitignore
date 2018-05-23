@@ -1,0 +1,9 @@
+node_modules/*
+dist/*
+.cache/*
+*.log
+yarn.lock
+package-lock.json
+.DS_Store
+
+functions/node_modules/*
