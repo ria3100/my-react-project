@@ -4,7 +4,7 @@ import { createBrowserHistory } from 'history'
 import { renderRoutes } from 'react-router-config'
 
 import { Default } from './layouts'
-import { Home, About } from './pages'
+import { Home, About, Login } from './pages'
 
 const config = [
   {
@@ -19,6 +19,10 @@ const config = [
       {
         path: '/about',
         component: About,
+      },
+      {
+        path: '/login',
+        component: Login,
       },
     ],
   },

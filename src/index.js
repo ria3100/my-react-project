@@ -6,6 +6,8 @@ import { AppContainer } from 'react-hot-loader'
 
 import 'antd/dist/antd.css'
 
+import Firebase from './firebase'
+
 import Routes from './routes'
 // import Stores from './stores'
 
@@ -23,32 +25,32 @@ ReactDOM.render(
   document.getElementById('app')
 )
 
-window.addEventListener('load', () => {
-  if ('serviceWorker' in navigator && navigator.serviceWorker) {
-    // if (isProduction) {
-    navigator.serviceWorker
-      .register('/sw.js', { scope: '/' })
-      .then(() => {
-        // SW registered
-      })
-      .catch(() => {
-        // SW registration failed
-      })
-    // } else {
-    //   navigator.serviceWorker.getRegistrations().then(registrations => {
-    //     registrations.forEach(registration => {
-    //       registration.unregister()
-    //     })
-    //   })
-    //   caches.keys().then(keys => {
-    //     const promises = []
+// window.addEventListener('load', () => {
+//   if ('serviceWorker' in navigator && navigator.serviceWorker) {
+//     // if (isProduction) {
+//     navigator.serviceWorker
+//       .register('/sw.js', { scope: '/' })
+//       .then(() => {
+//         // SW registered
+//       })
+//       .catch(() => {
+//         // SW registration failed
+//       })
+//     // } else {
+//     //   navigator.serviceWorker.getRegistrations().then(registrations => {
+//     //     registrations.forEach(registration => {
+//     //       registration.unregister()
+//     //     })
+//     //   })
+//     //   caches.keys().then(keys => {
+//     //     const promises = []
 
-    //     keys.forEach(cacheName => {
-    //       if (cacheName) {
-    //         promises.push(caches.delete(cacheName))
-    //       }
-    //     })
-    //   })
-    // }
-  }
-})
+//     //     keys.forEach(cacheName => {
+//     //       if (cacheName) {
+//     //         promises.push(caches.delete(cacheName))
+//     //       }
+//     //     })
+//     //   })
+//     // }
+//   }
+// })
