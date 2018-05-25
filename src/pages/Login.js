@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet'
 
 import firebase from 'firebase'
 
-import { Header, Login } from '../../components'
+import { Header, Login, TwitterLogin } from '@/components'
 
 export default class extends React.Component {
   render() {
@@ -11,6 +11,7 @@ export default class extends React.Component {
       <div>
         <h2>login</h2>
         <Login />
+        <TwitterLogin />
       </div>
     )
   }

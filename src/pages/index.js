@@ -1,8 +1,9 @@
 import loadable from 'loadable-components'
 
 const Pages = {
-  Home: loadable(() => import('./Home')),
-  About: loadable(() => import('./About')),
-  Login: loadable(() => import('./Login')),
+  Home: loadable(() => import('@/pages/Home')),
+  About: loadable(() => import('@/pages/About')),
+  Login: loadable(() => import('@/pages/Login')),
+  Profile: loadable(() => import('@/pages/Profile')),
 }
 module.exports = Pages

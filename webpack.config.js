@@ -44,6 +44,9 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js'],
+    alias: {
+      '@': path.resolve(__dirname, 'src/'),
+    },
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -72,7 +75,7 @@ module.exports = {
       globDirectory: dist,
       globPatterns: ['js/**/*.js'],
       swDest: dist + '/sw.js',
-      maximumFileSizeToCacheInBytes: 8 * 1024 * 1024, // 80MB
+      maximumFileSizeToCacheInBytes: 8 * 1024 * 1024, // 8MB
     }),
   ],
   devServer: {

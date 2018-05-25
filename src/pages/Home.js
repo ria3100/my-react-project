@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet'
 import { Card, Icon, Avatar, Row, Col } from 'antd'
 const { Meta } = Card
 
-import { Header } from '../../components'
+import { Header } from '@/components'
 
 export default class extends React.Component {
   render() {

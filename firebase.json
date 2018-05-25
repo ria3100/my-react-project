@@ -7,10 +7,10 @@
       "**/node_modules/**"
     ],
     "rewrites": [
-      // {
-      //   "source": "/bigben",
-      //   "function": "bigben"
-      // },
+      {
+        "source": "/bigben",
+        "function": "bigben"
+      },
       {
         "source": "**",
         "destination": "/index.html"
