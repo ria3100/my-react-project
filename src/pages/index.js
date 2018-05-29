@@ -5,5 +5,6 @@ const Pages = {
   About: loadable(() => import('@/pages/About')),
   Login: loadable(() => import('@/pages/Login')),
   Profile: loadable(() => import('@/pages/Profile')),
+  Edit: loadable(() => import('@/pages/Edit')),
 }
 module.exports = Pages

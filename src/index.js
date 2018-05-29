@@ -9,12 +9,7 @@ import 'antd/dist/antd.css'
 import Firebase from '@/firebase'
 
 import Routes from '@/routes'
-// import Stores from '@/stores'
-
-import Count from '@/stores/Count'
-const Stores = {
-  count: new Count(),
-}
+import Stores from '@/stores'
 
 ReactDOM.render(
   <AppContainer>

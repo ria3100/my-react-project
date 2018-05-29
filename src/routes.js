@@ -4,7 +4,7 @@ import { createBrowserHistory } from 'history'
 import { renderRoutes } from 'react-router-config'
 
 import { Default } from '@/layouts'
-import { Home, About, Login, Profile } from '@/pages'
+import { Home, About, Login, Profile, Edit } from '@/pages'
 
 const config = [
   {
@@ -27,6 +27,10 @@ const config = [
       {
         path: '/profile',
         component: Profile,
+      },
+      {
+        path: '/edit',
+        component: Edit,
       },
     ],
   },
