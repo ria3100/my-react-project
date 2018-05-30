@@ -1,5 +1,5 @@
 import React from 'react'
-import { ArticleListItem } from '@/components/molecules'
+import { ArticleCard } from '@/components/molecules'
 
 export default class extends React.Component {
   render() {
@@ -7,7 +7,7 @@ export default class extends React.Component {
     return (
       <div>
         {items.map(item => {
-          return <ArticleListItem item={item} />
+          return <ArticleCard item={item} />
         })}
       </div>
     )

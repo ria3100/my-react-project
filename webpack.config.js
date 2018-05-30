@@ -28,14 +28,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist', 'js'),
     publicPath: '/js/',
   },
-  resolve: {
-    root: [
-      path.resolve(__dirname, 'src'),
-      path.resolve(__dirname, 'node_modules'),
-      __dirname,
-    ],
-    extensions: ['', '.js'],
-  },
+
   module: {
     rules: [
       {
@@ -53,14 +46,21 @@ module.exports = {
     ],
   },
   resolve: {
+    // root: [
+    //   path.resolve(__dirname, 'src'),
+    //   path.resolve(__dirname, 'node_modules'),
+    //   __dirname,
+    // ],
     extensions: ['.js'],
     alias: {
-      '@': path.resolve(__dirname, 'src/'),
+      '@': path.resolve('src/'),
     },
   },
   plugins: [
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
+      'process.env': {
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development'),
+      },
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),

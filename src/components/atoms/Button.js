@@ -1,12 +1,7 @@
 import React from 'react'
-import styled from 'styled-components'
 import firebase from 'firebase'
 
 import { Button } from 'antd'
-
-// const Button2 = styled(Button)`
-//   padding: 4em;
-// `
 
 export default class extends React.Component {
   constructor(props) {

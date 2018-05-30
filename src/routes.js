@@ -4,36 +4,32 @@ import { createBrowserHistory } from 'history'
 import { renderRoutes } from 'react-router-config'
 
 import { Default } from '@/layouts'
-import { Home, About, Login, Profile, Edit } from '@/pages'
+import { Home, About, Login, Profile } from '@/components/pages'
 
 const config = [
+  // {
+  //   path: '/',
+  //   component: Default,
+  //   routes: [
   {
     path: '/',
-    component: Default,
-    routes: [
-      {
-        path: '/',
-        component: Home,
-        exact: true,
-      },
-      {
-        path: '/about',
-        component: About,
-      },
-      {
-        path: '/login',
-        component: Login,
-      },
-      {
-        path: '/profile',
-        component: Profile,
-      },
-      {
-        path: '/edit',
-        component: Edit,
-      },
-    ],
+    component: Home,
+    exact: true,
   },
+  {
+    path: '/about',
+    component: About,
+  },
+  {
+    path: '/login',
+    component: Login,
+  },
+  {
+    path: '/profile',
+    component: Profile,
+  },
+  // ],
+  // },
 ]
 
 const Routes = () => renderRoutes(config)
