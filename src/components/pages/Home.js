@@ -1,8 +1,8 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
 
-import { Card, Icon, Avatar, Row, Col } from 'antd'
-const { Layout, Header, Footer, Content } = Layout
+import { Layout, Card, Icon, Avatar, Row, Col } from 'antd'
+const { Header, Footer, Content } = Layout
 const { Meta } = Card
 
 // import { ArticleListItem } from '@/components/molecules'

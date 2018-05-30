@@ -3,7 +3,6 @@ import { Router } from 'react-router-dom'
 import { createBrowserHistory } from 'history'
 import { renderRoutes } from 'react-router-config'
 
-import { Default } from '@/layouts'
 import { Home, About, Login, Profile } from '@/components/pages'
 
 const config = [
