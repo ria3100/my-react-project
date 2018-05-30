@@ -6,5 +6,5 @@ import { ArticleCard } from '../'
 import 'antd/dist/antd.css'
 
 storiesOf('2. Molecules/ArticleCard', module).add('normal', () => (
-  <ArticleCard />
+  <ArticleCard item="aaa" />
 ))

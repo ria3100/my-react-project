@@ -6,10 +6,6 @@ import { renderRoutes } from 'react-router-config'
 import { Home, About, Login, Profile } from '@/components/pages'
 
 const config = [
-  // {
-  //   path: '/',
-  //   component: Default,
-  //   routes: [
   {
     path: '/',
     component: Home,
@@ -27,8 +23,6 @@ const config = [
     path: '/profile',
     component: Profile,
   },
-  // ],
-  // },
 ]
 
 const Routes = () => renderRoutes(config)
