@@ -6,8 +6,8 @@ const { Header } = Layout
 export default class extends React.Component {
   render() {
     return (
-      <Header>
-        <h2>foo</h2>
+      <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
+        <h2>{this.props.title}</h2>
       </Header>
     )
   }

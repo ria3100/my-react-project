@@ -1,8 +1,8 @@
 import React from 'react'
-import { LoginForm } from '../'
+import { ProfileTemplate } from '../'
 
 export default class extends React.Component {
   render() {
-    return <LoginForm />
+    return <ProfileTemplate />
   }
 }

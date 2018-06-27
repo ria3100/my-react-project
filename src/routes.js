@@ -3,25 +3,25 @@ import { Router } from 'react-router-dom'
 import { createBrowserHistory } from 'history'
 import { renderRoutes } from 'react-router-config'
 
-import { Home, About, Login, Profile } from '@/components/pages'
+import { HomePage, AboutPage, LoginPage, ProfilePage } from '@/components/pages'
 
 const config = [
   {
     path: '/',
-    component: Home,
+    component: HomePage,
     exact: true,
   },
   {
     path: '/about',
-    component: About,
+    component: AboutPage,
   },
   {
     path: '/login',
-    component: Login,
+    component: LoginPage,
   },
   {
     path: '/profile',
-    component: Profile,
+    component: ProfilePage,
   },
 ]
 

@@ -1,8 +1,11 @@
 import React from 'react'
-import { LoginForm } from '../'
 
 export default class extends React.Component {
   render() {
-    return <LoginForm />
+    return (
+      <div>
+        <h2>Profile</h2>
+      </div>
+    )
   }
 }
