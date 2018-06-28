@@ -3,6 +3,6 @@ import { Header } from '../'
 
 export default class extends React.Component {
   render() {
-    return <Header />
+    return <Header title={'test'} />
   }
 }

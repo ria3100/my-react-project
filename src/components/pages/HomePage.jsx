@@ -1,10 +1,5 @@
 import React, { Fragment } from 'react'
-
 import { Helmet } from 'react-helmet'
-
-// import { Layout} from 'antd'
-// const { Header, Footer, Content } = Layout
-// const { Meta } = Card
 
 import { HomeTemplate } from '@/components/templates'
 

@@ -1,8 +1,9 @@
-import loadable from 'loadable-components'
-
-import Count from '@/stores/count'
+import CountStore from '@/stores/count'
+import ArticlesStore from '@/stores/articles'
 
 const Stores = {
-  count: new Count(),
+  ArticlesStore,
+  CountStore,
 }
+console.log(Stores)
 module.exports = Stores

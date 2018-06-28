@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { Helmet } from 'react-helmet'
 
 import { LoginForm } from '@/components/molecules'
@@ -7,10 +7,10 @@ import { LoginForm } from '@/components/molecules'
 export default class extends React.Component {
   render() {
     return (
-      <div>
+      <Fragment>
         <h2>login</h2>
         <LoginForm />
-      </div>
+      </Fragment>
     )
   }
 }

@@ -2,7 +2,7 @@ import { observable, computed, action } from 'mobx'
 
 const sleep = msec => new Promise(resolve => setTimeout(resolve, msec))
 
-export default class CountStore {
+class CountStore {
   @observable num = 0
 
   @computed
@@ -26,3 +26,4 @@ export default class CountStore {
     this.onIncrement()
   }
 }
+export default new CountStore()
