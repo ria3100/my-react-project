@@ -3,7 +3,7 @@ import React from 'react'
 import { Layout } from 'antd'
 const { Footer, Content } = Layout
 
-import { ArticleList, Header } from '@/components/organisms'
+import { Header } from '@/components/organisms'
 
 export default class extends React.Component {
   render() {
@@ -12,7 +12,6 @@ export default class extends React.Component {
         <Header title={'title'} />
         <Content style={{ padding: '0 50px', marginTop: 64 }}>
           <h2>Home</h2>
-          <ArticleList />
         </Content>
         <Footer />
       </Layout>

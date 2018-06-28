@@ -1,5 +1,8 @@
 const path = require('path')
 
+const AntdScssThemePlugin = require('antd-scss-theme-plugin')
+const isProduction = process.env.NODE_ENV === 'production'
+
 module.exports = {
   module: {
     rules: [
@@ -15,6 +18,53 @@ module.exports = {
           { loader: 'css-loader', options: { url: false } },
         ],
       },
+      {
+        test: /\.scss$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'style-loader',
+            options: {
+              sourceMap: !isProduction,
+            },
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+              sourceMap: !isProduction,
+              modules: true,
+              camelCase: true,
+              localIdentName: '[name]-[local]-[hash:base64:5]',
+            },
+          },
+          AntdScssThemePlugin.themify({
+            loader: 'sass-loader',
+            options: {
+              sourceMap: !isProduction,
+            },
+          }),
+        ],
+      },
+      {
+        test: /\.less$/,
+        use: [
+          {
+            loader: 'style-loader',
+            options: {
+              sourceMap: !isProduction,
+            },
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+              sourceMap: !isProduction,
+            },
+          },
+          AntdScssThemePlugin.themify('less-loader'),
+        ],
+      },
     ],
   },
   resolve: {
@@ -23,4 +73,5 @@ module.exports = {
       '@': path.resolve('src/'),
     },
   },
+  plugins: [new AntdScssThemePlugin('./src/theme.scss')],
 }

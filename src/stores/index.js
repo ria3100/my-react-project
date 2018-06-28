@@ -5,5 +5,4 @@ const Stores = {
   ArticlesStore,
   CountStore,
 }
-console.log(Stores)
 module.exports = Stores

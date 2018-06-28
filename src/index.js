@@ -4,16 +4,12 @@ import ReactDOM from 'react-dom'
 import { Provider } from 'mobx-react'
 import { AppContainer } from 'react-hot-loader'
 
-import 'antd/dist/antd.css'
-
-import Firebase from '@/firebase'
-
 import Routes from '@/routes'
 import Stores from '@/stores'
 
 ReactDOM.render(
   <AppContainer>
-    <Provider {...Stores}>
+    <Provider store={Stores}>
       <Routes />
     </Provider>
   </AppContainer>,

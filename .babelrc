@@ -4,5 +4,16 @@
     "es2015",
     "stage-0"
   ],
-  "plugins": ["react-hot-loader/babel", "transform-decorators-legacy", "transform-class-properties"]
+  "plugins": [
+    "react-hot-loader/babel",
+    "transform-decorators-legacy",
+    "transform-class-properties",
+    [
+      "import",
+      {
+        "libraryName": "antd",
+        "style": true
+      }
+    ]
+  ]
 }

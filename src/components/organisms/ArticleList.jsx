@@ -39,14 +39,15 @@ import { inject, observer } from 'mobx-react'
 //   },
 // ]
 
-@inject('ArticlesStore')
+@inject('store')
 @observer
 export default class extends React.Component {
-  static propTypes = {
-    ArticlesStore: PropTypes.object.isRequired,
-  }
+  // static propTypes = {
+  //   ArticlesStore: PropTypes.object.isRequired,
+  // }
   render() {
-    const { ArticlesStore } = this.props
+    // const { ArticlesStore } = this.props
+    console.log(this.props)
     return <div>a</div>
   }
 }

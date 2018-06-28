@@ -5,6 +5,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const { GenerateSW } = require('workbox-webpack-plugin')
 // const CleanWebpackPlugin = require('clean-webpack-plugin')
+const AntdScssThemePlugin = require('antd-scss-theme-plugin')
+const isProduction = process.env.NODE_ENV === 'production'
 
 const vendor = [
   'loadable-components',
@@ -41,6 +43,53 @@ module.exports = {
         use: [
           'style-loader',
           { loader: 'css-loader', options: { url: false } },
+        ],
+      },
+      {
+        test: /\.scss$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'style-loader',
+            options: {
+              sourceMap: !isProduction,
+            },
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+              sourceMap: !isProduction,
+              modules: true,
+              camelCase: true,
+              localIdentName: '[name]-[local]-[hash:base64:5]',
+            },
+          },
+          AntdScssThemePlugin.themify({
+            loader: 'sass-loader',
+            options: {
+              sourceMap: !isProduction,
+            },
+          }),
+        ],
+      },
+      {
+        test: /\.less$/,
+        use: [
+          {
+            loader: 'style-loader',
+            options: {
+              sourceMap: !isProduction,
+            },
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+              sourceMap: !isProduction,
+            },
+          },
+          AntdScssThemePlugin.themify('less-loader'),
         ],
       },
     ],
@@ -92,6 +141,7 @@ module.exports = {
     // new CleanWebpackPlugin(['dist'], {
     //   root: path.join(__dirname, '.'),
     // }),
+    new AntdScssThemePlugin(path.join(__dirname, 'src', 'theme.scss')),
   ],
   devServer: {
     contentBase: path.join(__dirname, 'dist'),

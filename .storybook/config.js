@@ -1,5 +1,4 @@
 import { configure } from '@storybook/react'
-import 'antd/dist/antd.css'
 
 function loadStories() {
   require('../src/components/atoms/stories/index.stories')
