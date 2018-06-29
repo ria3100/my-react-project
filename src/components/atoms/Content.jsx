@@ -6,8 +6,8 @@ const { Content } = Layout
 
 const style = {
   content: {
-    float: 'left',
-    height: '1600px',
+    // float: 'left',
+    minHeight: '1600px',
     marginTop: 64,
   },
 }

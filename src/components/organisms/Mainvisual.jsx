@@ -10,6 +10,6 @@ const Mainvisual = styled.div`
 
 export default class extends React.Component {
   render() {
-    return(<Mainvisual>aaa</Mainvisual>)
+    return(<Mainvisual />)
   }
 }
