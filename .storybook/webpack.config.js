@@ -1,5 +1,6 @@
 const path = require('path')
 
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const AntdScssThemePlugin = require('antd-scss-theme-plugin')
 const isProduction = process.env.NODE_ENV === 'production'
 
@@ -73,5 +74,14 @@ module.exports = {
       '@': path.resolve('src/'),
     },
   },
-  plugins: [new AntdScssThemePlugin('./src/theme.scss')],
+  plugins: [
+    new CopyWebpackPlugin([
+      {
+        from: path.resolve(__dirname, '../static'),
+        to: './static',
+        ignore: ['.*'],
+      },
+    ]),
+    new AntdScssThemePlugin('./src/scss/theme.scss'),
+  ],
 }

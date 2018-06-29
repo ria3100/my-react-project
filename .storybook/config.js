@@ -1,5 +1,7 @@
 import { configure } from '@storybook/react'
 
+// import '@/scss/style.scss'
+
 function loadStories() {
   require('../src/components/atoms/stories/index.stories')
   require('../src/components/molecules/stories/index.stories')

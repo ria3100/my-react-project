@@ -141,7 +141,7 @@ module.exports = {
     // new CleanWebpackPlugin(['dist'], {
     //   root: path.join(__dirname, '.'),
     // }),
-    new AntdScssThemePlugin(path.join(__dirname, 'src', 'theme.scss')),
+    new AntdScssThemePlugin(path.join(__dirname, 'src', 'scss/theme.scss')),
   ],
   devServer: {
     contentBase: path.join(__dirname, 'dist'),

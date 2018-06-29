@@ -13,11 +13,25 @@ const Logo = styled.h1`
   float: left;
 `
 
+const style = {
+  header: {
+    WebkitBackdropFilter: 'blur(8px)',
+    position: 'fixed',
+    zIndex: 100,
+    width: '100%',
+  },
+  menu: {
+    background: 'transparent',
+    lineHeight: '64px',
+  },
+}
+
+
 export default class extends React.Component {
   render() {
-    return <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
+    return <Header style={style.header}>
         <Logo>{this.props.title}</Logo>
-        <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']} style={{ lineHeight: '64px' }}>
+        <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']} style={style.menu}>
           <Menu.Item key="1">nav 1</Menu.Item>
           <Menu.Item key="2">nav 2</Menu.Item>
           <Menu.Item key="3">nav 3</Menu.Item>

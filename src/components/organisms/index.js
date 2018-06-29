@@ -1,8 +1,10 @@
 import loadable from 'loadable-components'
 
 const Molecules = {
-  ArticleList: loadable(() => import('./ArticleList')),
   Header: loadable(() => import('./Header')),
+  Footer: loadable(() => import('./Footer')),
+  ArticleList: loadable(() => import('./ArticleList')),
+  Mainvisual: loadable(() => import('./Mainvisual')),
+  Card: loadable(() => import('./Card')),
 }
-console.log(Molecules)
 module.exports = Molecules
