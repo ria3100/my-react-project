@@ -1,8 +1,8 @@
 import React from 'react'
-import { Header } from '../'
+import { HeaderMenu } from '../'
 
 export default class extends React.Component {
   render() {
-    return <Header content={'text text text text text'} />
+    return <HeaderMenu title={'test'} />
   }
 }

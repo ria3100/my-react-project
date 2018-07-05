@@ -1,7 +1,7 @@
 import { observable, computed, action } from 'mobx'
 
-import firebase from '../firebase'
-var db = firebase.firestore()
+// import firebase from '../firebase'
+// var db = firebase.firestore()
 
 class ArticlesStore {
   @observable list = []
@@ -15,13 +15,13 @@ class ArticlesStore {
   @action.bound
   onIncrement() {
     const self = this
-    db.collection('article')
-      .get()
-      .then(querySnapshot => {
-        querySnapshot.forEach(doc => {
-          self.list = doc
-        })
-      })
+    // db.collection('article')
+    //   .get()
+    //   .then(querySnapshot => {
+    //     querySnapshot.forEach(doc => {
+    //       self.list = doc
+    //     })
+    //   })
   }
 
   // @action.bound

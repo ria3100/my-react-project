@@ -1,68 +1,42 @@
 import React, { Fragment } from 'react'
 import styled from 'styled-components'
 
-import { Layout, Menu } from 'antd'
-const { Header } = Layout
+import { HeaderBgSVG } from '@/components/atoms'
+import { HeaderContent } from '@/components/molecules'
+import { HeaderMenu } from '@/components/organisms'
 
-import { HamburgerMenu } from '@/components/molecules'
-
-const Logo = styled.h1`
-  width: 120px;
-  height: 63px;
-  color: #fff;
-  font-size: 1.5em;
-  margin: 0;
-  float: left;
+const Mainvisual = styled.div`
+  position: relative;
+  width: 100vw;
 `
 
-// const Hamburger = styled.div`
-//   width: 100vw;
-//   float: left;
-//   height: ${props => (props.isOpen ? '100vh' : 0)};
-//   transition: height .5s;
-// `
-
-const style = {
-  header: {
-    WebkitBackdropFilter: 'blur(8px)',
-    position: 'fixed',
-    zIndex: 100,
-    width: '100%',
-    height: 'auto',
-  },
-  menu: {
-    background: 'transparent',
-    lineHeight: '64px',
-    float: 'right',
-  },
-}
+const Icon = styled.div`
+  position: relative;
+  width: 92px;
+  height: 92px;
+  border-radius: 60px;
+  background: rgb(112, 225, 245);
+  margin: 0 auto;
+  &:after {
+    position: absolute;
+    content: '';
+    width: 92px;
+    height: 92px;
+    display: block;
+    background: url(/static/logo-icon.svg) top left / cover no-repeat;
+  }
+`
 
 export default class extends React.Component {
-  constructor() {
-    super()
-    this.state = {
-      isOpen: false,
-    }
-  }
-
-  toggle() {
-    console.log(this.state.isOpen)
-    this.setState({ isOpen: !this.state.isOpen })
-  }
-
   render() {
-    return <Fragment>
-        <Header style={style.header}>
-          <Logo>{this.props.title}</Logo>
-          <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']} style={style.menu}>
-            <Menu.Item key="1">nav 1</Menu.Item>
-            <Menu.Item key="2">nav 2</Menu.Item>
-            <Menu.Item key="3" onClick={() => this.toggle()}>
-              nav 3
-            </Menu.Item>
-          </Menu>
-          <HamburgerMenu isOpen={this.state.isOpen} />
-        </Header>
+    return (
+      <Fragment>
+        <HeaderMenu />
+        <Mainvisual>
+          <HeaderBgSVG small={false}/>
+          <HeaderContent small={false}/>
+        </Mainvisual>
       </Fragment>
+    )
   }
 }

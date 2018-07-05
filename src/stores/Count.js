@@ -2,6 +2,9 @@ import { observable, computed, action } from 'mobx'
 
 const sleep = msec => new Promise(resolve => setTimeout(resolve, msec))
 
+import firebase from '../firebase'
+var db = firebase.firestore()
+
 class CountStore {
   @observable num = 0
 
@@ -13,6 +16,14 @@ class CountStore {
   @action.bound
   onIncrement() {
     this.num = this.num + 1
+
+    db.collection('article')
+      .get()
+      .then(querySnapshot => {
+        querySnapshot.forEach(doc => {
+          console.log(doc.id, doc.data())
+        })
+      })
   }
 
   @action.bound

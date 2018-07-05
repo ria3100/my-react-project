@@ -8,6 +8,7 @@ const style = {
     background: 'linear-gradient(to right, #ffd194, #70e1f5)',
     color: '#fff',
     fontWeight: 'bold',
+    border: 'none',
   },
 }
 
