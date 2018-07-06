@@ -8,6 +8,7 @@ import { HeaderMenu } from '@/components/organisms'
 const Mainvisual = styled.div`
   position: relative;
   width: 100vw;
+  margin-bottom:64px;
 `
 
 const Icon = styled.div`

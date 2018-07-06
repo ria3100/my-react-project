@@ -7,7 +7,7 @@ export const articles = [
       'Ant Design, a design language for background applications, is refined by Ant UED Team Ant Design, a design language for background applications, is refined by Ant UED Team',
     startAt: 1507032000000,
     endAt: 1507035600000,
-    categories: ['react'],
+    tags: [{ text: 'react', path: 'react' }],
   },
   {
     id: 1,
@@ -17,7 +17,7 @@ export const articles = [
       'Ant Design, a design language for background applications, is refined by Ant UED Team Ant Design, a design language for background applications, is refined by Ant UED Team',
     startAt: 1507035600000,
     endAt: 1507039200000,
-    categories: ['react'],
+    tags: [{ text: 'react', path: 'react' }],
   },
   {
     id: 2,
@@ -27,7 +27,7 @@ export const articles = [
       'Ant Design, a design language for background applications, is refined by Ant UED Team Ant Design, a design language for background applications, is refined by Ant UED Team',
     startAt: 1507032000000,
     endAt: 1507035600000,
-    categories: ['react'],
+    tags: [{ text: 'react', path: 'react' }],
   },
   {
     id: 3,
@@ -37,7 +37,7 @@ export const articles = [
       'Ant Design, a design language for background applications, is refined by Ant UED Team Ant Design, a design language for background applications, is refined by Ant UED Team',
     startAt: 1507035600000,
     endAt: 1507039200000,
-    categories: ['react'],
+    tags: [{ text: 'react', path: 'react' }],
   },
   {
     id: 4,
@@ -47,7 +47,7 @@ export const articles = [
       'Ant Design, a design language for background applications, is refined by Ant UED Team Ant Design, a design language for background applications, is refined by Ant UED Team',
     startAt: 1507032000000,
     endAt: 1507035600000,
-    categories: ['react'],
+    tags: [{ text: 'react', path: 'react' }],
   },
   {
     id: 5,
@@ -57,11 +57,31 @@ export const articles = [
       'Ant Design, a design language for background applications, is refined by Ant UED Team Ant Design, a design language for background applications, is refined by Ant UED Team',
     startAt: 1507035600000,
     endAt: 1507039200000,
-    categories: ['react'],
+    tags: [{ text: 'react', path: 'react' }],
+  },
+  {
+    id: 6,
+    thumbnail: '/mock/images/img02.jpg',
+    title: 'Ant Design7',
+    body:
+      'Ant Design, a design language for background applications, is refined by Ant UED Team Ant Design, a design language for background applications, is refined by Ant UED Team',
+    startAt: 1507035600000,
+    endAt: 1507039200000,
+    tags: [{ text: 'react', path: 'react' }],
+  },
+  {
+    id: 7,
+    thumbnail: '/mock/images/img02.jpg',
+    title: 'Ant Design8',
+    body:
+      'Ant Design, a design language for background applications, is refined by Ant UED Team Ant Design, a design language for background applications, is refined by Ant UED Team',
+    startAt: 1507035600000,
+    endAt: 1507039200000,
+    tags: [{ text: 'react', path: 'react' }],
   },
 ]
 
-export const categories = [
+export const tags = [
   { key: 'js', label: 'JavaScript' },
   { key: 'react', label: 'React.js' },
   { key: 'vue', label: 'Vue.js' },
