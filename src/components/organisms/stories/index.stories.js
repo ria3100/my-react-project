@@ -1,5 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
+import { MemoryRouter } from 'react-router-dom'
 
 import SmallArticleList from './SmallArticleList.stories'
 import ArticleList from './ArticleList.stories'
@@ -9,6 +10,7 @@ import Footer from './Footer.stories'
 import Card from './Card.stories'
 
 storiesOf('Organisms', module)
+  .addDecorator(story => <MemoryRouter>{story()}</MemoryRouter>)
   .add('Header', () => <Header />)
   .add('HeaderMenu', () => <HeaderMenu />)
   .add('Footer', () => <Footer />)

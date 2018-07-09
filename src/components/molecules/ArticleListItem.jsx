@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 import { List } from 'antd'
 
@@ -30,7 +31,8 @@ export default class extends React.Component {
       <List.Item style={style.ListItem}>
         <List.Item.Meta
           title={
-            <a href="https://ant.design"><Title>{this.props.item.title}</Title></a>
+            <Link to="/about">a</Link>
+            // <a href="https://ant.design">aa</a>
           }
           description={
             <Fragment>

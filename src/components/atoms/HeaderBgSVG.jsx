@@ -2,8 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Svg = styled.svg`
-  transform: translateY(-105%);
-  transition: all 1s;
+  // transform: translateY(-105%);
+  transform: translateY(-300px);
+  transition: transform 1s;
   &.show {
     transform: translateY(0);
   }
@@ -17,17 +18,17 @@ export default class extends React.Component {
       counter: 0,
       className: '',
     }
-    this.state = Object.assign(this.state, this.getSVGParam())
+    this.state = Object.assign(this.state, this.getSVGParam(0))
   }
-  getSVGParam() {
+  getSVGParam(add) {
     const width = window.innerWidth || document.documentElement.clientWidth || document.getElementsByTagName('body')[0].clientWidth
     const height = this.state.contentHeight + (width / 2) * Math.tan(7 * (Math.PI / 180))
     const path = `M
       0 0 L
       ${width} 0 L
-      ${width} ${this.state.contentHeight} L
+      ${width} ${this.state.contentHeight + add} L
       ${width / 2} ${height} L
-      0 ${this.state.contentHeight}Z`
+      0 ${this.state.contentHeight + add}Z`
     // const transform = `translate(0, -${height})`
     return { width, height, path }
   }
@@ -41,9 +42,18 @@ export default class extends React.Component {
   //   self.setState({ transform: `translate(0, ${y})` })
   //   window.requestAnimationFrame(self.animate.bind(null, self))
   // }
+
+  componentDidMount() {
+    window.addEventListener('scroll', (e) => {
+      let add = window.pageYOffset - 300
+      add = add < 0 ? 0 : add
+      add = 0
+      this.setState(this.getSVGParam(add))
+    })
+  }
   componentWillMount() {
     window.addEventListener('resize', () => {
-      this.setState(this.getSVGParam())
+      this.setState(this.getSVGParam(0))
     })
     setTimeout(() => {
       this.setState({ className: 'show' })

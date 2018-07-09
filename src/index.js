@@ -10,7 +10,6 @@ import Stores from '@/stores'
 ReactDOM.render(
   <AppContainer>
     <Provider {...Stores}>
-      {/* <Provider store={Stores}> */}
       <Routes />
     </Provider>
   </AppContainer>,
