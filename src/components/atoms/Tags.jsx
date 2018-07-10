@@ -1,17 +1,22 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import styled from 'styled-components'
+import { Link } from 'react-router-dom'
 
 import { Icon } from 'antd'
 
 export default class extends React.Component {
   render() {
     return (
-      <div>
+      <Fragment>
         <Icon type="tag" />&nbsp;
         {this.props.tags.map(item => {
-          return <span>{item.text}&nbsp;</span>
+          return (
+            <Fragment>
+              <Link to={item.path}>{item.text}</Link>
+            </Fragment>
+          )
         })}
-      </div>
+      </Fragment>
     )
   }
 }

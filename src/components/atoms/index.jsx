@@ -8,5 +8,7 @@ const Atoms = {
   LogoSVG: loadable(() => import('./LogoSVG')),
   Button: loadable(() => import('./Button')),
   Img: loadable(() => import('./Img')),
+  Markdown: loadable(() => import('./Markdown')),
+  CodeBlock: loadable(() => import('./CodeBlock')),
 }
 module.exports = Atoms

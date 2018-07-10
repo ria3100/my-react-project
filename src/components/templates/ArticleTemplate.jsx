@@ -11,12 +11,14 @@ import {
 
 export default class extends React.Component {
   render() {
-    return <Layout>
+    return (
+      <Layout>
         <Header title={'title'} />
         <Content style={{ float: 'left' }}>
-          <Article />
+          <Article article={this.props.article} />
         </Content>
         <Footer />
       </Layout>
+    )
   }
 }

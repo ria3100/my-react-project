@@ -6,6 +6,7 @@ const Molecules = {
   Footer: loadable(() => import('./Footer')),
   SmallArticleList: loadable(() => import('./SmallArticleList')),
   ArticleList: loadable(() => import('./ArticleList')),
+  Article: loadable(() => import('./Article')),
   // Mainvisual: loadable(() => import('./Mainvisual')),
   Card: loadable(() => import('./Card')),
   TopPageSection: loadable(() => import('./TopPageSection')),

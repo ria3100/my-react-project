@@ -2,21 +2,41 @@
 // https://ant.design/docs/spec/colors#header
 
 $primary-color: #cc241d;
-$layout-body-background: #fff;
+$layout-body-background: #fcfcfc;
 $layout-header-background: rgba(10, 10, 10, 0.9);
 // 色が同じになるの rgba(27, 27, 27, 0.95)
 
+$body-background: #fcfcfc;
+// // Base background color for most components
+$component-background: #fcfcfc;
+$font-family-no-number: "Noto Sans JP", "Yu Gothic Medium", YuGothic, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+// // $font-family: $font-family-no-number;
+// // $code-family: Consolas, Menlo, Courier, monospace;
+$heading-color: fade(#546E7A, 100%);
+$text-color: fade(#546E7A, 100%);
+$text-color-secondary: fade(#546E7A, 100%);
+$heading-color-dark: fade(#fff, 100%);
+$text-color-dark: fade(#fff, 100%);
+$text-color-secondary-dark: fade(#fff, 100%);
+$font-size-base: 16px;
+$font-size-lg: $font-size-base + 2px;
+$font-size-sm: 14px;
+$line-height-base: 1.5;
+// // $border-radius-base: 4px;
+// // $border-radius-sm: 2px;
+
 
 // http://www.colourlovers.com/palette/1488831/Ultra_Anti-Love_%5Bt2%5D?widths=1
-$color1_1: #0DFCB4;
-$color1_2: #C8FF00;
-$color1_3: #040004;
-$color1_4: #413D3D;
-$color1_5: #FF2E45;
+// $color1_1: #0DFCB4;
+// $color1_2: #C8FF00;
+// $color1_3: #040004;
+// $color1_4: #413D3D;
+// $color1_5: #FF2E45;
 
 // http://www.colourlovers.com/palette/109188/antidesign
-$color2_1: #413D3D;
-$color2_2: #040004;
-$color2_3: #C8FF00;
-$color2_4: #FA023C;
-$color2_5: #4B000F;
+// $color2_1: #413D3D;
+// $color2_2: #040004;
+// $color2_3: #C8FF00;
+// $color2_4: #FA023C;
+// $color2_5: #4B000F;
+

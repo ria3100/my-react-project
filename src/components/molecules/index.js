@@ -5,7 +5,6 @@ const Organisms = {
   HeaderContent: loadable(() => import('./HeaderContent')),
   ArticleListItem: loadable(() => import('./ArticleListItem')),
   DateAndTags: loadable(() => import('./DateAndTags')),
-  ArticleCard: loadable(() => import('./ArticleCard')),
   LoginForm: loadable(() => import('./LoginForm')),
 }
 module.exports = Organisms

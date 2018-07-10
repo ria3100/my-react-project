@@ -5,6 +5,6 @@ import { articles } from '../../../mock/data.js'
 
 export default class extends React.Component {
   render() {
-    return <ArticleTemplate articles={articles} />
+    return <ArticleTemplate article={articles[0]} />
   }
 }

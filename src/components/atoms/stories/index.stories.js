@@ -6,6 +6,7 @@ import Button from './Button.stories'
 import HeaderBgSVG from './HeaderBgSVG.stories'
 import Tags from './Tags.stories'
 import LogoSVG from './LogoSVG.stories'
+import Markdown from './Markdown.stories'
 
 storiesOf('Atoms', module)
   .addDecorator(story => <MemoryRouter>{story()}</MemoryRouter>)
@@ -13,3 +14,4 @@ storiesOf('Atoms', module)
   .add('HeaderBgSVG', () => <HeaderBgSVG />)
   .add('Tags', () => <Tags />)
   .add('LogoSVG', () => <LogoSVG />)
+  .add('Markdown', () => <Markdown />)

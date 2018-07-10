@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment }  from 'react'
 import moment from 'moment'
 
 import { Icon } from 'antd'
@@ -6,10 +6,10 @@ import { Icon } from 'antd'
 export default class extends React.Component {
   render() {
     return (
-      <div>
+      <Fragment>
         <Icon type="clock-circle-o" />&nbsp;
         {moment(this.props.date).format('YYYY-MM-DD')}
-      </div>
+      </Fragment>
     )
   }
 }
