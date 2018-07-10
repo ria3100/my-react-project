@@ -1,19 +1,21 @@
 import React, { Fragment } from 'react'
 import { Helmet } from 'react-helmet'
 
-import { HomeTemplate } from '@/components/templates'
+import { ArticleTemplate } from '@/components/templates'
+
+import { articles } from '../../mock/data.js'
 
 export default class extends React.Component {
   render() {
-    const page = this.props.match.url == '/' ? 'top' : 'list'
+    const article = articles[this.props.match.params.date]
     return (
       <Fragment>
         <Helmet>
           <meta charSet="utf-8" />
-          <title>My Title</title>
+          <title>{article.title}</title>
           <link rel="canonical" href="http://mysite.com/example" />
         </Helmet>
-        <HomeTemplate page={page}/>
+        <ArticleTemplate article={article}/>
       </Fragment>
     )
   }

@@ -11,7 +11,7 @@ export default class extends React.Component {
         <Icon type="tag" />&nbsp;
         {this.props.tags.map(item => {
           return (
-            <Fragment>
+            <Fragment key={item.path}>
               <Link to={item.path}>{item.text}</Link>
             </Fragment>
           )

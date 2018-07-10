@@ -1,9 +1,15 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Router } from 'react-router-dom'
 import { createBrowserHistory } from 'history'
 import { renderRoutes } from 'react-router-config'
 
-import { HomePage, AboutPage, LoginPage, ProfilePage } from '@/components/pages'
+import {
+  HomePage,
+  ArticlePage,
+  AboutPage,
+  LoginPage,
+  ProfilePage,
+} from '@/components/pages'
 
 const config = [
   {
@@ -12,17 +18,31 @@ const config = [
     exact: true,
   },
   {
-    path: '/about',
-    component: AboutPage,
+    path: '/article/:date',
+    component: ArticlePage,
   },
   {
-    path: '/login',
-    component: LoginPage,
+    path: '/:category',
+    component: HomePage,
+    routes: [
+      {
+        path: '/:category/:page',
+        component: HomePage,
+      },
+    ],
   },
-  {
-    path: '/profile',
-    component: ProfilePage,
-  },
+  // {
+  //   path: '/about',
+  //   component: AboutPage,
+  // },
+  // {
+  //   path: '/login',
+  //   component: LoginPage,
+  // },
+  // {
+  //   path: '/profile',
+  //   component: ProfilePage,
+  // },
 ]
 
 const Routes = () => renderRoutes(config)

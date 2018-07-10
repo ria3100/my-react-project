@@ -124,6 +124,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: path.resolve(__dirname, './dist/index.html'),
       template: 'index.html',
+      chunksSortMode: 'manual',
       minify: {
         html5: true,
         removeComments: true,
@@ -132,12 +133,12 @@ module.exports = {
         removeTagWhitespace: true,
       },
     }),
-    new GenerateSW({
-      globDirectory: dist,
-      globPatterns: ['js/**/*.js'],
-      swDest: dist + '/sw.js',
-      maximumFileSizeToCacheInBytes: 8 * 1024 * 1024, // 8MB
-    }),
+    // new GenerateSW({
+    //   globDirectory: dist,
+    //   globPatterns: ['js/**/*.js'],
+    //   swDest: dist + '/sw.js',
+    //   maximumFileSizeToCacheInBytes: 4 * 1024 * 1024, // 8MB
+    // }),
     // new CleanWebpackPlugin(['dist'], {
     //   root: path.join(__dirname, '.'),
     // }),

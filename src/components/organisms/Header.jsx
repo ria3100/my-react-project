@@ -30,13 +30,16 @@ const Icon = styled.div`
 
 export default class extends React.Component {
   render() {
+    const mainvisual = this.props.page == 'top' ?
+      <Mainvisual>
+        <HeaderBgSVG small={false} />
+        <HeaderContent small={false} />
+      </Mainvisual>
+      : null
     return (
       <Fragment>
         <HeaderMenu />
-        <Mainvisual>
-          <HeaderBgSVG small={false}/>
-          <HeaderContent small={false}/>
-        </Mainvisual>
+        {mainvisual}
       </Fragment>
     )
   }

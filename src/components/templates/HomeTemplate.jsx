@@ -14,7 +14,7 @@ export default class extends React.Component {
   render() {
     return (
       <Layout>
-        <Header title={'title'} />
+        <Header title={'title'} page={this.props.page}/>
         <Content style={{ float: 'left' }}>
           <ArticleList articles={this.props.articles}/>
           <TopPageSection theme={'gray'} position={'right'} title={'モダンWeb'} />

@@ -47,7 +47,7 @@ export default class extends React.Component {
   render() {
     const numbers = []
     for (let i = 1; i <= this.props.value.match(/\n/g).length + 1; i++) {
-      numbers.push(<Fragment>{i}<br /></Fragment>)
+      numbers.push(<Fragment key={i}>{i}<br /></Fragment>)
     }
     const lineNumbers = numbers.length > 3 ?
       <LineNumbers className="hljs hljs-line-numbers">{numbers}</LineNumbers> : null
