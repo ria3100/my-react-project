@@ -14,21 +14,25 @@ export default class extends React.Component {
   }
   constructor(props) {
     super(props)
+    this.state = {
+      articleList: []
+    }
   }
   componentDidMount() {
-    this.props.ArticlesStore.getArticleList()
+    //TODO promise.all で template 切り替えも可
+    (async () => {
+      this.setState({ articleList: await this.props.ArticlesStore.getList() })
+    })()
   }
   render() {
     const page = this.props.match.url == '/' ? 'top' : 'list'
-    return (
-      <Fragment>
+    return <Fragment>
         <Helmet>
           <meta charSet="utf-8" />
           <title>My Title</title>
           <link rel="canonical" href="http://mysite.com/example" />
         </Helmet>
-        <HomeTemplate page={page} articles={this.props.ArticlesStore.list} />
+        <HomeTemplate page={page} articles={this.state.articleList} />
       </Fragment>
-    )
   }
 }

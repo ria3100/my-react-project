@@ -21,7 +21,7 @@ export default class extends React.Component {
   componentDidMount() {
     //TODO promise.all で template 切り替えも可
     (async () => {
-      this.setState({ article: await this.props.ArticlesStore.getOne() })
+      this.setState({ article: await this.props.ArticlesStore.getOne('mvARWqoJqwLApPk1gv9I') })
     })()
   }
   render() {
