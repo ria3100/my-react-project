@@ -1,39 +1,34 @@
 import { observable, computed, action } from 'mobx'
+// import { asyncComputed } from 'computed-async-mobx'
 
-// import firebase from '../firebase'
-// var db = firebase.firestore()
+import firebase from '../firebase'
+const db = firebase.firestore()
+const settings = { timestampsInSnapshots: true }
+db.settings(settings)
 
 class ArticlesStore {
-  @observable list = []
+  @observable emptyArticle
 
-  // @computed
-  // get getDoubleCount() {
-  //   return this.articles
-  // }
-
-  // TODO アロー関数
-  @action.bound
-  onIncrement() {
-    const self = this
-    // db.collection('article')
-    //   .get()
-    //   .then(querySnapshot => {
-    //     querySnapshot.forEach(doc => {
-    //       self.list = doc
-    //     })
-    //   })
+  constructor() {
+    this.emptyArticle = {
+      title: '',
+      body: '',
+    }
   }
 
-  // @action.bound
-  // onDecrement() {
-  //   this.articles = this.articles - 1
-  // }
-
-  // @action.bound
-  // async onAsyncIecrement() {
-  //   await sleep(1000)
-  //   this.onIncrement()
-  // }
+  @action.bound
+  async getOne() {
+    let tmp
+    await db
+      .collection('articles')
+      .get()
+      .then(querySnapshot => {
+        querySnapshot.forEach(doc => {
+          tmp = doc.data()
+        })
+      })
+    return tmp
+  }
 }
 
 export default new ArticlesStore()

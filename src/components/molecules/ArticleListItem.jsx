@@ -27,17 +27,17 @@ const style = {
 
 export default class extends React.Component {
   render() {
+    console.log(this.props.item)
     return (
       <List.Item style={style.ListItem}>
         <List.Item.Meta
           title={
-            <Link to="/about">a</Link>
-            // <a href="https://ant.design">aa</a>
+            <Link to="/about">{this.props.item.title}</Link>
           }
           description={
             <Fragment>
               <Body>
-                Ant Design, a design language for background applications, is refined by Ant UED Team Ant Design, a design language for background applications, is refined by Ant UED Team
+                {this.props.item.body}
               </Body>
               <DateAndTags tags={this.props.item.tags} date={this.props.item.startAt}/>
             </Fragment>

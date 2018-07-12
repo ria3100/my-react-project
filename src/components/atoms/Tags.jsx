@@ -9,13 +9,13 @@ export default class extends React.Component {
     return (
       <Fragment>
         <Icon type="tag" />&nbsp;
-        {this.props.tags.map(item => {
+        {/* {this.props.tags.map(item => {
           return (
             <Fragment key={item.path}>
-              <Link to={item.path}>{item.text}</Link>
+              <Link to={item.path}>{item.name}</Link>
             </Fragment>
           )
-        })}
+        })} */}
       </Fragment>
     )
   }
