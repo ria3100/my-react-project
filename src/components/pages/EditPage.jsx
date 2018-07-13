@@ -4,7 +4,7 @@ import { Helmet } from 'react-helmet'
 import PropTypes from 'prop-types'
 import { inject, observer } from 'mobx-react'
 
-import { HomeTemplate } from '@/components/templates'
+import { EditTemplate } from '@/components/templates'
 
 @inject('ArticlesStore')
 @observer
@@ -15,25 +15,30 @@ export default class extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      articleList: []
+      article: this.props.ArticlesStore.emptyArticle,
     }
   }
   componentDidMount() {
     //TODO promise.all で template 切り替えも可
     (async () => {
-      this.setState({ articleList: await this.props.ArticlesStore.getFirstPage() })
-      this.setState({ articleTotalCount: this.props.ArticlesStore.totalCount })
+      this.setState({
+        article: await this.props.ArticlesStore.getOne('mvARWqoJqwLApPk1gv9I'),
+      })
     })()
   }
+  onChange(article) {
+    this.setState({ article })
+  }
   render() {
-    const page = this.props.match.url == '/' ? 'top' : 'list'
-    return <Fragment>
+    return (
+      <Fragment>
         <Helmet>
           <meta charSet="utf-8" />
-          <title>My Title</title>
+          <title>{this.state.article.title}</title>
           <link rel="canonical" href="http://mysite.com/example" />
         </Helmet>
-      <HomeTemplate page={page} articleTotalCount={this.state.articleTotalCount} articles={this.state.articleList} />
+        <EditTemplate article={this.state.article} onChange={article => this.onChange(article)}/>
       </Fragment>
+    )
   }
 }

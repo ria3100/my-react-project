@@ -46,11 +46,13 @@ export default class extends React.Component {
   }
   render() {
     const numbers = []
-    for (let i = 1; i <= this.props.value.match(/\n/g).length + 1; i++) {
+    const n = this.props.value.match(/\n/g) ? this.props.value.match(/\n/g).length + 1 : 0
+    for (let i = 1; i <= n; i++) {
       numbers.push(<Fragment key={i}>{i}<br /></Fragment>)
     }
-    const lineNumbers = numbers.length > 3 ?
-      <LineNumbers className="hljs hljs-line-numbers">{numbers}</LineNumbers> : null
+    const lineNumbers = numbers.length > 3 
+      ? <LineNumbers className="hljs hljs-line-numbers">{numbers}</LineNumbers>
+      : null
 
     const file = this.props.language.split(':')[1]
     const fileName = file ? <FileName>{file}</FileName> : null

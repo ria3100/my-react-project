@@ -8,13 +8,92 @@ db.settings(settings)
 db.enablePersistence()
 
 class ArticlesStore {
-  @observable emptyArticle
+  @observable cache = {}
+  @observable emptyArticle = {}
+  @observable currentPage = []
+  @observable nextPage = []
+  @observable totalCount = 0
 
-  constructor() {
-    this.emptyArticle = {
-      title: '',
-      body: '',
-    }
+  // constructor() {
+  //   this.cache = {}
+  //   this.emptyArticle = {
+  //     title: '',
+  //     body: '',
+  //   }
+  // }
+
+  @action.bound
+  async getFirstPage() {
+    await db
+      .collection('articles')
+      .get()
+      .then(snap => {
+        this.totalCount = snap.size
+      })
+
+    if (this.totalCount == 0) return
+
+    await db
+      .collection('articles')
+      .orderBy('startAt', 'desc')
+      .get()
+      .then(querySnapshot => {
+        querySnapshot.forEach(doc => {
+          console.log('c', doc.id)
+          this.cache[doc.id] = doc.data()
+          this.currentPage.push(doc.id)
+        })
+      })
+      .catch(error => {
+        console.log('Error getting documents: ', error)
+      })
+
+    db.collection('articles')
+      .orderBy('startAt', 'desc')
+      .get()
+      .then(querySnapshot => {
+        querySnapshot.forEach(doc => {
+          console.log('n', doc.id)
+          this.cache[doc.id] = doc.data()
+          this.nextPage.push(doc.id)
+        })
+      })
+      .catch(error => {
+        console.log('Error getting documents: ', error)
+      })
+
+    return this.currentPage.map(id => {
+      return this.cache[id]
+    })
+  }
+
+  @action.bound
+  async getNextPage() {
+    this.currentPage = this.nextPage
+
+    await db
+      .collection('articles')
+      .get()
+      .then(snap => {
+        this.totalCount = snap.size
+      })
+
+    db.collection('articles')
+      .orderBy('startAt', 'desc')
+      .get()
+      .then(querySnapshot => {
+        querySnapshot.forEach(doc => {
+          this.cache[doc.id] = doc.data()
+          this.nextPage.push(doc.id)
+        })
+      })
+      .catch(error => {
+        console.log('Error getting documents: ', error)
+      })
+
+    return this.currentPage.map(id => {
+      return this.cache[id]
+    })
   }
 
   @action.bound
@@ -25,13 +104,13 @@ class ArticlesStore {
       .collection('articles')
       .orderBy('startAt', 'desc')
       .get()
-      .then(function(querySnapshot) {
-        querySnapshot.forEach(function(doc) {
-          // doc.data() is never undefined for query doc snapshots
+      .then(querySnapshot => {
+        querySnapshot.forEach(doc => {
+          this.cache[doc.id] = doc.data()
           ret.push(doc.data())
         })
       })
-      .catch(function(error) {
+      .catch(error => {
         console.log('Error getting documents: ', error)
       })
 
@@ -40,23 +119,23 @@ class ArticlesStore {
 
   @action.bound
   async getOne(id) {
-    let ret
+    if (!this.cache.hasOwnProperty(id)) {
+      const docRef = db.collection('articles').doc(id)
+      await docRef
+        .get()
+        .then(doc => {
+          if (doc.exists) {
+            this.cache[doc.id] = doc.data()
+          } else {
+            console.log('No such document!')
+          }
+        })
+        .catch(error => {
+          console.log('Error getting document:', error)
+        })
+    }
 
-    const docRef = db.collection('articles').doc(id)
-    await docRef
-      .get()
-      .then(function(doc) {
-        if (doc.exists) {
-          ret = doc.data()
-        } else {
-          console.log('No such document!')
-        }
-      })
-      .catch(function(error) {
-        console.log('Error getting document:', error)
-      })
-
-    return ret
+    return this.cache[id]
   }
 }
 

@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react'
+import { Link } from 'react-router-dom'
 import ReactMarkdown from 'react-markdown'
 import hljs from 'highlight.js/lib/highlight'
 import styled from 'styled-components'
@@ -23,17 +24,16 @@ const style = {
 }
 
 export default class extends React.Component {
-  highlightCode(code) {
-    return hljs.highlightAuto(code, ['javascript']).value
-    // return code
-  }
   render() {
-    return <Row style={style.ListRow}>
+    return (
+      <Row style={style.ListRow}>
         <Col span={20} offset={2}>
           <ArticleTitle>{this.props.article.title}</ArticleTitle>
           <DateAndTags tags={this.props.article.tags} date={this.props.article.startAt} />
+          <Link to="/edit/0">編集</Link>
           <Markdown md={this.props.article.body} />
         </Col>
       </Row>
+    )
   }
 }

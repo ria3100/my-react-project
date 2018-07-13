@@ -17,6 +17,7 @@ export default class extends React.Component {
         <Header title={'title'} page={this.props.page}/>
         <Content style={{ float: 'left' }}>
           <ArticleList articles={this.props.articles}/>
+          {this.props.articleTotalCount}
           {/* <TopPageSection theme={'gray'} position={'right'} title={'モダンWeb'} />
           <TopPageSection theme={'light'} position={'left'} title={'SPA'} />
           <TopPageSection theme={'dark'} position={'right'} title={'Profile'} /> */}

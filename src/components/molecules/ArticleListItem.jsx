@@ -30,19 +30,12 @@ export default class extends React.Component {
     console.log(this.props.item)
     return (
       <List.Item style={style.ListItem}>
-        <List.Item.Meta
-          title={
-            <Link to="/about">{this.props.item.title}</Link>
-          }
-          description={
-            <Fragment>
-              <Body>
-                {this.props.item.body}
-              </Body>
-              <DateAndTags tags={this.props.item.tags} date={this.props.item.startAt}/>
-            </Fragment>
-          }
-        />
+        <List.Item.Meta title={<Link to="/article/0">
+              {this.props.item.title}
+            </Link>} description={<Fragment>
+              <Body>{this.props.item.sumally}</Body>
+              <DateAndTags tags={this.props.item.tags} date={this.props.item.startAt} />
+            </Fragment>} />
       </List.Item>
     )
   }

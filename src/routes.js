@@ -6,6 +6,7 @@ import { renderRoutes } from 'react-router-config'
 import {
   HomePage,
   ArticlePage,
+  EditPage,
   AboutPage,
   LoginPage,
   ProfilePage,
@@ -20,6 +21,16 @@ const config = [
   {
     path: '/article/:date',
     component: ArticlePage,
+  },
+  {
+    path: '/edit',
+    component: EditPage,
+    routes: [
+      {
+        path: '/edit/:date',
+        component: EditPage,
+      },
+    ],
   },
   {
     path: '/:category',

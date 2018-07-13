@@ -10,5 +10,7 @@ const Atoms = {
   Img: loadable(() => import('./Img')),
   Markdown: loadable(() => import('./Markdown')),
   CodeBlock: loadable(() => import('./CodeBlock')),
+  Editor: loadable(() => import('./Editor')),
+  TagEditor: loadable(() => import('./TagEditor')),
 }
 module.exports = Atoms

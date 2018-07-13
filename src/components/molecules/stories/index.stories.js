@@ -4,10 +4,12 @@ import { MemoryRouter } from 'react-router-dom'
 
 import HeaderContent from './HeaderContent.stories'
 import DateAndTags from './DateAndTags.stories'
+import ArticleInput from './ArticleInput.stories'
 import LoginForm from './LoginForm.stories'
 
 storiesOf('Molecules', module)
   .addDecorator(story => <MemoryRouter>{story()}</MemoryRouter>)
   .add('HeaderContent', () => <HeaderContent />)
   .add('DateAndTags', () => <DateAndTags />)
+  .add('ArticleInput', () => <ArticleInput />)
   .add('LoginForm', () => <LoginForm />)

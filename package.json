@@ -18,6 +18,7 @@
     "computed-async-mobx": "^4.1.0",
     "highlight.js": "^9.12.0",
     "history": "^4.7.2",
+    "immutability-helper": "^2.7.1",
     "mobx-react": "^5.1.2",
     "mobx-utils": "^5.0.0",
     "moment": "^2.22.2",
