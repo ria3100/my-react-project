@@ -12,27 +12,24 @@ export default class extends React.Component {
   static propTypes = {
     ArticlesStore: PropTypes.object.isRequired,
   }
-  constructor(props) {
-    super(props);
-    this.state = {
-      article: this.props.ArticlesStore.emptyArticle
-    }
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {
+  //     article: this.props.ArticlesStore.emptyArticle
+  //   }
+  // }
   componentDidMount() {
-    //TODO promise.all で template 切り替えも可
-    (async () => {
-      this.setState({ article: await this.props.ArticlesStore.getOne('mvARWqoJqwLApPk1gv9I') })
-    })()
+    this.props.ArticlesStore.getOne('mvARWqoJqwLApPk1gv9I')
   }
   render() {
     return (
       <Fragment>
         <Helmet>
           <meta charSet="utf-8" />
-          <title>{this.state.article.title}</title>
+          {/* <title>{this.props.ArticlesStore.item.title}</title> */}
           <link rel="canonical" href="http://mysite.com/example" />
         </Helmet>
-        <ArticleTemplate article={this.state.article} />
+        <ArticleTemplate {...this.props} />
       </Fragment>
     )
   }

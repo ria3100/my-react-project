@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { inject, observer } from 'mobx-react'
 import { Layout } from 'antd'
 
 import { Content } from '@/components/atoms'
@@ -9,13 +10,14 @@ import {
   Article,
 } from '@/components/organisms'
 
+@observer
 export default class extends React.Component {
   render() {
     return (
       <Layout>
-        <Header title={'title'} />
+        <Header title={'title'} {...this.props} />
         <Content style={{ float: 'left' }}>
-          <Article article={this.props.article} />
+          <Article {...this.props} />
         </Content>
         <Footer />
       </Layout>

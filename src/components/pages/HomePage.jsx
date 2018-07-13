@@ -12,28 +12,19 @@ export default class extends React.Component {
   static propTypes = {
     ArticlesStore: PropTypes.object.isRequired,
   }
-  constructor(props) {
-    super(props)
-    this.state = {
-      articleList: []
-    }
-  }
   componentDidMount() {
-    //TODO promise.all で template 切り替えも可
-    (async () => {
-      this.setState({ articleList: await this.props.ArticlesStore.getFirstPage() })
-      this.setState({ articleTotalCount: this.props.ArticlesStore.totalCount })
-    })()
+    this.props.ArticlesStore.fetch()
   }
   render() {
-    const page = this.props.match.url == '/' ? 'top' : 'list'
-    return <Fragment>
+    return (
+      <Fragment>
         <Helmet>
           <meta charSet="utf-8" />
           <title>My Title</title>
           <link rel="canonical" href="http://mysite.com/example" />
         </Helmet>
-      <HomeTemplate page={page} articleTotalCount={this.state.articleTotalCount} articles={this.state.articleList} />
+        <HomeTemplate {...this.props} />
       </Fragment>
+    )
   }
 }

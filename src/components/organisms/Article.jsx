@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react'
 import { Link } from 'react-router-dom'
-import ReactMarkdown from 'react-markdown'
-import hljs from 'highlight.js/lib/highlight'
 import styled from 'styled-components'
+
+import { inject, observer } from 'mobx-react'
 
 import { Row, Col } from 'antd'
 import { Markdown } from '@/components/atoms'
@@ -23,15 +23,19 @@ const style = {
   },
 }
 
+@observer
 export default class extends React.Component {
   render() {
     return (
       <Row style={style.ListRow}>
         <Col span={20} offset={2}>
-          <ArticleTitle>{this.props.article.title}</ArticleTitle>
-          <DateAndTags tags={this.props.article.tags} date={this.props.article.startAt} />
+          <ArticleTitle>{this.props.ArticlesStore.item.title}</ArticleTitle>
+          <DateAndTags
+            tags={this.props.ArticlesStore.item.tags}
+            date={this.props.ArticlesStore.item.startAt}
+          />
           <Link to="/edit/0">編集</Link>
-          <Markdown md={this.props.article.body} />
+          <Markdown md={this.props.ArticlesStore.item.body} />
         </Col>
       </Row>
     )
